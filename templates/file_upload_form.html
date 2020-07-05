@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>upload</title>
+</head>
+<body>
+<h2> please upload the file</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p><br>
+
+
+    <form action = "/" method = "post" enctype="multipart/form-data">
+
+		<h3>secure:</h3>
+		<input type="radio" name="secure" id="FTP" value="FTP" checked>FTP</input><br><br>
+		<input type="radio" name="secure" id="FTP TLS" value="FTP TLS"> FTP TLS </input><br><br>
+
+
+        <input type="file" name="file" />
+
+        <input type = "submit" class="btn btn-primary" value="Upload">
+    </form>
+</body>
+</html>
